@@ -17,8 +17,11 @@ return new class extends Migration
             $table->foreign('organisation_unit')->references('code')->on('organisation_units')->onDelete('cascade');
             $table->string('first_name', 64)->nullable();
             $table->string('last_name', 64)->nullable();
+            $table->integer('age')->nullable();
+            $table->date('date_of_birth')->nullable();
             $table->string('phone_number', 32)->nullable();
             $table->string('place_of_residence__physical_address', 191)->nullable();
+            $table->date('date_of_registration')->nullable();
             $table->timestamps();
         });
     }
