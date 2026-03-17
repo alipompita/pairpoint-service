@@ -4,7 +4,7 @@ export default function ApplicationLogo(props) {
             src="/img/meiru-logo.png"
             alt="Application Logo"
             width="150"
-        // className={props.className}
+            className={props.className}
         />
 
     );
