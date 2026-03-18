@@ -17,6 +17,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Internal API Key
+    |--------------------------------------------------------------------------
+    |
+    | This value is a key used to grant access to internal machines fetching data 
+    | for running record linkage scripts, training api models, running api reviews
+    | and for posting data from dss and / or the eRegister
+    |
+    */
+
+    'internal_api_key' => env('INTERNAL_API_KEY', ''),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Environment
     |--------------------------------------------------------------------------
     |
