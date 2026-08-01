@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('matched_pairs', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('linkage_run_id')->constrained('linkage_runs')->onDelete('cascade');
-            $table->string('ident', 8);
-            $table->foreign('ident')->references('ident')->on('dss_candidates')->onDelete('cascade');
+        Schema::create('facility_entity_enrollments', function (Blueprint $table) {
             $table->string('tracked_entity_instance', 32);
+            $table->string('program_code');
             $table->foreign('tracked_entity_instance')->references('tracked_entity_instance')->on('facility_entities')->onDelete('cascade');
-            $table->enum('status', ['pending', 'confirmed', 'rejected'])->default('pending');
+            $table->foreign('program_code')->references('program_code')->on('facility_programs')->onDelete('cascade');
+            $table->date('enrollment_date')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('matched_pairs');
+        Schema::dropIfExists('facility_entity_enrollments');
     }
 };
